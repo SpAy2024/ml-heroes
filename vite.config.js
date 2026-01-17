@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+﻿import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/ml-heroes/',  // Asegúrate que coincida con tu repo
+  base: "./",  // IMPORTANTE: ./ para GitHub Pages
   build: {
-    outDir: 'dist',
+    outDir: "docs",
     sourcemap: false,
     emptyOutDir: true
   }

@@ -1,24 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/ml-heroes/',  // ¡IMPORTANTE! Nombre EXACTO de tu repositorio
+  base: '/ml-heroes/',  // ¡IMPORTANTE! Esto resuelve las rutas
   build: {
     outDir: 'dist',
     sourcemap: false,
-    emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-icons']
-        }
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.css')) return 'assets/[name]-[hash].css'
+          return 'assets/[name]-[hash][extname]'
+        },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js'
       }
     }
   },
   server: {
-    port: 3000,
-    open: true
+    port: 3000
   }
 })

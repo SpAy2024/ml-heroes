@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ml-heroes/',  // Asegúrate que coincida con tu repo
+  base: '/ml-heroes/',  // ← ¡EXACTO nombre de tu repo!
   build: {
     outDir: 'dist',
     sourcemap: false,

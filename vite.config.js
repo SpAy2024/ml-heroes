@@ -1,20 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/ml-heroes/',  // IMPORTANTE: nombre de tu repositorio
+  base: '/ml-heroes/',  // IMPORTANTE: nombre exacto de tu repo
   build: {
     outDir: 'dist',
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-icons']
-        }
-      }
-    }
+    sourcemap: false
   },
   server: {
     port: 3000,
